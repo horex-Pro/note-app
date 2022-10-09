@@ -159,6 +159,9 @@ aside .notes-wrapper .note .note-time{
     border-radius: 10px;
     padding: 20px;
 }
+.content .note-wrapper input:focus{
+    outline: none;
+}
 .content .note-wrapper input::placeholder{
     color: #fff;
 }
@@ -171,6 +174,7 @@ aside .notes-wrapper .note .note-time{
     color: #fff;
     border-radius: 10px;
     margin-top: 1%;
+    resize: none;
 }
 .content .note-wrapper textarea::placeholder{
     color: #fff;
