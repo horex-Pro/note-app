@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+hr{
+    opacity: 0.1;
+    width: 100%;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+body{
+    font-family: 'Merriweather Sans', sans-serif;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(#404bc2,#9B5D6F);
+    overflow: hidden;
+}
+aside{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 20px 20px 20px;
+}
+aside .logo{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 30px;
+    color: #fff;
+}
+aside .notes-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 30px;
+    overflow-x: scroll;
+}
+aside .notes-wrapper .note{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: justify;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+aside .notes-wrapper .note:hover , aside .notes-wrapper .note.active{
+    background: rgba(255, 255, 255, 0.25);
+}
+aside .notes-wrapper .note .note-title{
+    font-size: 22px;
+}
+aside .notes-wrapper .note .note-preview{
+    width: 100%;
+    height: 80px;
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 10px;
+}
+aside .notes-wrapper .note .note-time{
+    font-weight: 200;
+    margin-top: 10px;
+}
+
+.content{
+    width: 78%;
+    height: 90%;
+    border-radius: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+.content hr{
+    margin-top: 1%;
+}
+.content .row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+.content .row button{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.content .row button:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
+.content .row .search-bar{
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding-left: 10px;
+}
+.content .row .search-bar input{
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+.content .row .search-bar input:focus{
+    border: none;
+    outline: none;
+}
+.content .row .search-bar input::placeholder{
+    color: #fff;
+}
+.content .note-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 1%;
+}
+.content .note-wrapper input{
+    height: 10%;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+.content .note-wrapper input::placeholder{
+    color: #fff;
+}
+.content .note-wrapper textarea{
+    height: 70%;
+    padding: 20px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 1%;
+}
+.content .note-wrapper textarea::placeholder{
+    color: #fff;
+}
