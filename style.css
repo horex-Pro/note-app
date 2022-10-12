@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+.fa-trash{
+    width: 50%;
+}
 hr{
     opacity: 0.1;
     width: 100%;
@@ -65,6 +68,7 @@ aside .notes-wrapper .note{
     text-align: justify;
     transition: all .2s ease;
     cursor: pointer;
+    z-index: 0;
 }
 aside .notes-wrapper .note:hover , aside .notes-wrapper .note.active{
     background: rgba(255, 255, 255, 0.25);
@@ -80,8 +84,13 @@ aside .notes-wrapper .note .note-preview{
     padding-top: 10px;
 }
 aside .notes-wrapper .note .note-time{
+    display: flex;
+    justify-content: space-between;
     font-weight: 200;
     margin-top: 10px;
+}
+aside .notes-wrapper .note .note-time .text{
+    width: 80%;
 }
 
 .content{
@@ -145,13 +154,13 @@ aside .notes-wrapper .note .note-time{
 .content .row .search-bar input::placeholder{
     color: #fff;
 }
-.content .note-wrapper{
+.content .inputs-wrapper{
     display: flex;
     flex-direction: column;
     height: 100%;
     margin-top: 1%;
 }
-.content .note-wrapper input{
+.content .inputs-wrapper input{
     height: 10%;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -159,13 +168,13 @@ aside .notes-wrapper .note .note-time{
     border-radius: 10px;
     padding: 20px;
 }
-.content .note-wrapper input:focus{
+.content .inputs-wrapper input:focus{
     outline: none;
 }
-.content .note-wrapper input::placeholder{
+.content .inputs-wrapper input::placeholder{
     color: #fff;
 }
-.content .note-wrapper textarea{
+.content .inputs-wrapper textarea{
     height: 70%;
     padding: 20px;
     outline: none;
@@ -176,6 +185,6 @@ aside .notes-wrapper .note .note-time{
     margin-top: 1%;
     resize: none;
 }
-.content .note-wrapper textarea::placeholder{
+.content .inputs-wrapper textarea::placeholder{
     color: #fff;
 }
