@@ -19,4 +19,5 @@ const view = new NotesView(root,{
 });
 
 view.updateNoteList(NotesApi.getAllNotes())
+console.log('test')
 
