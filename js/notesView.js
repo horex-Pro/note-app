@@ -80,7 +80,7 @@ export default class NotesView{
                 timeStyle:"short",
             })}
             </div>
-            <i class="fa-solid fa-trash" data-note-id="${id}"></i>
+            <div class="icon-parent" data-note-id="${id}"><i class="fa-solid fa-trash"></i></div>
             </div>
             </div>
             `
@@ -106,14 +106,12 @@ export default class NotesView{
         )}
         );
 
-        const trashes = [...notesContainer.querySelectorAll('.fa-trash')]
+        const trashes = [...notesContainer.querySelectorAll('.icon-parent')]
         
         trashes.forEach((item)=>{
             item.addEventListener('click',(e)=>{
                 e.stopPropagation()
-                this.oneNoteDelete(noteItem.dataset.noteId);
-                console.log(e);
-                alert('cliked');
+                this.oneNoteDelete(item.dataset.noteId);
             });
         })
         

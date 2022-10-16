@@ -14,10 +14,10 @@ const view = new NotesView(root,{
         console.log(noteId);
     },
     oneNoteDelete(noteId){
-        console.log('dele')
+        console.log(noteId)
     }
 });
 
 view.updateNoteList(NotesApi.getAllNotes())
-console.log('test')
+
 

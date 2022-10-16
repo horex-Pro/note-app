@@ -3,9 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-.fa-trash{
-    width: 50%;
+.icon-parent{
+    width: 10%;
+    cursor: pointer;
+    z-index: 1000;
+    display: block;
 }
+
 hr{
     opacity: 0.1;
     width: 100%;
