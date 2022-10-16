@@ -57,14 +57,18 @@ export default class NotesView{
                 this.oneNoteEdite(newTextTitle,newTextBody);
             })
         })
+        // hide notes preview in first loading
+
+        this.updateNotePreviewVisibility(false)
         
     }
+
 
     _createListItemHTML(id,title,body,updated){
         let maxBodyLength = 50;
         return `
         <div class="note" data-note-id="${id}">
-        <div class="note-title">
+        <div class="note__title">
             ${title}
         </div>
         <hr>
@@ -115,5 +119,21 @@ export default class NotesView{
             });
         })
         
+    }
+    updateActiveNote(note){
+        this.main.querySelector(".note-title").value = note.title;
+        this.main.querySelector(".note-body").value = note.body;
+        const existedActiveNotes = this.main.querySelectorAll('.active')
+        
+        const arrayOfExistedActiveNotes = [...existedActiveNotes];
+        arrayOfExistedActiveNotes.forEach(item=>{
+            item.classList.remove('active')
+        })
+
+        let selectedNotes = this.main.querySelector(`.note[data-note-id="${note.id}"]`)
+        selectedNotes.setAttribute("class", "active , note");
+    }
+    updateNotePreviewVisibility(visible){
+        this.main.querySelector('.inputs-wrapper').style.visibility = visible ? "visible" : "hidden";
     }
 }

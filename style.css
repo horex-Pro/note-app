@@ -77,7 +77,7 @@ aside .notes-wrapper .note{
 aside .notes-wrapper .note:hover , aside .notes-wrapper .note.active{
     background: rgba(255, 255, 255, 0.25);
 }
-aside .notes-wrapper .note .note-title{
+aside .notes-wrapper .note .note__title{
     font-size: 22px;
 }
 aside .notes-wrapper .note .note-preview{

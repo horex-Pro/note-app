@@ -1,23 +1,47 @@
 import NotesApi from "./notesAPI.js";
 import NotesView from "./notesView.js";
 
-const root = document.querySelector('#root');
-
-const view = new NotesView(root,{
-    oneNoteAdd(){
-        console.log('note has been added')
-    },
-    oneNoteEdite(newTitle , newBody){
-        console.log(newTitle,newBody)
-    },
-    oneNoteSelect(noteId){
-        console.log(noteId);
-    },
-    oneNoteDelete(noteId){
-        console.log(noteId)
+export default class App {
+    constructor(root){
+        this.notes = [];
+        this.activeNote = null;
+        this.view = new NotesView(root,this._handlres())
+        this._refreshNotes()
     }
-});
 
-view.updateNoteList(NotesApi.getAllNotes())
+    _refreshNotes(){
+        const notes = NotesApi.getAllNotes();
+        this.notes = notes;
+        this.view.updateNoteList(notes);
+        this.view.updateNotePreviewVisibility(notes.length > 0);
 
+        this.activeNote = notes;
+        this.view.updateActiveNote(notes[0])
+    }
+
+    _handlres(){
+        return{
+            oneNoteAdd: ()=>{
+                const newNote = {
+                    title:"New Note",
+                    body: "Take some note"
+                }
+                NotesApi.saveNotes(newNote);
+                this._refreshNotes();
+            },
+            oneNoteEdite:(newTitle , newBody)=>{
+                console.log(newTitle,newBody)
+            },
+            oneNoteSelect:(noteId)=>{
+                const selectedNote = this.notes.find((note) => note.id == noteId);
+                this.activeNote = selectedNote;
+                console.log(this.activeNote)
+                this.view.updateActiveNote(selectedNote);
+            },
+            oneNoteDelete:(noteId)=>{
+                console.log(noteId)
+            }
+        }
+    }
+}
 

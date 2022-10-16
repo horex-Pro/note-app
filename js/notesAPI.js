@@ -3,7 +3,7 @@ export default class NotesApi{
     static getAllNotes(){
         const allNotes = JSON.parse(localStorage.getItem('notes-app')) || [];
         return allNotes.sort((a,b)=>{
-            return new Date(a.updated) > new Date(b.updated) ? 1 : -1;
+            return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
         });
     }
 
@@ -35,4 +35,3 @@ export default class NotesApi{
 }
 
 NotesApi.deleteNotes(3)
-console.log(NotesApi.getAllNotes())
