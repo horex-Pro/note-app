@@ -27,8 +27,7 @@ export default class NotesApi{
     }
     static deleteNotes(id){
         const notes = NotesApi.getAllNotes();
-
-        const filteredNotes = notes.filter(n => n.id !== id);
+        const filteredNotes = notes.filter(n => n.id != id);
 
         localStorage.setItem('notes-app',JSON.stringify(filteredNotes));
     }

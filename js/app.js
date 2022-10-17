@@ -30,7 +30,12 @@ export default class App {
                 this._refreshNotes();
             },
             oneNoteEdite:(newTitle , newBody)=>{
-                console.log(newTitle,newBody)
+                NotesApi.saveNotes({
+                    id : this.activeNote.id,
+                    title: newTitle,
+                    body: newBody,
+                });
+                this._refreshNotes()
             },
             oneNoteSelect:(noteId)=>{
                 const selectedNote = this.notes.find((note) => note.id == noteId);
@@ -39,7 +44,8 @@ export default class App {
                 this.view.updateActiveNote(selectedNote);
             },
             oneNoteDelete:(noteId)=>{
-                console.log(noteId)
+                NotesApi.deleteNotes(noteId);
+                this._refreshNotes()
             }
         }
     }
