@@ -121,7 +121,7 @@ export default class NotesView{
         
     }
     updateActiveNote(note){
-        this.main.querySelector(".note-title").value = note.title;
+        this.main.querySelector( ".note-title" ).value = note.title;
         this.main.querySelector(".note-body").value = note.body;
         const existedActiveNotes = this.main.querySelectorAll('.active')
         
