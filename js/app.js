@@ -9,14 +9,18 @@ export default class App {
         this._refreshNotes()
     }
 
-    _refreshNotes(){
+    _refreshNotes() {
         const notes = NotesApi.getAllNotes();
         this.notes = notes;
         this.view.updateNoteList(notes);
         this.view.updateNotePreviewVisibility(notes.length > 0);
 
-        this.activeNote = notes;
-        this.view.updateActiveNote(notes[0])
+        if (notes.length > 0) {
+            this.activeNote = notes[0]; // Set the first note as the active note
+            this.view.updateActiveNote(this.activeNote);
+        } else {
+            this.activeNote = null; // No active note if there are no notes
+    }
     }
 
     _handlres(){
@@ -29,14 +33,16 @@ export default class App {
                 NotesApi.saveNotes(newNote);
                 this._refreshNotes();
             },
-            oneNoteEdite:(newTitle , newBody)=>{
-                NotesApi.saveNotes({
-                    id : this.activeNote.id,
-                    title: newTitle,
-                    body: newBody,
-                });
-                this._refreshNotes()
-            },
+            oneNoteEdite: (newTitle, newBody) => {
+  if (this.activeNote) {
+    NotesApi.saveNotes({
+      id: this.activeNote.id,
+      title: newTitle,
+      body: newBody,
+    });
+    this._refreshNotes();
+                }
+},
             oneNoteSelect:(noteId)=>{
                 const selectedNote = this.notes.find((note) => note.id == noteId);
                 this.activeNote = selectedNote;

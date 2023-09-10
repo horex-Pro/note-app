@@ -28,10 +28,6 @@ export default class NotesView{
                     <i class="fa-solid fa-plus"></i>
                     add new note
                 </button>
-                <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="search...">
-                </div>
             </div>
             <div class="inputs-wrapper">
                 <input type="text" class="note-title" value="Note Title">
@@ -120,7 +116,8 @@ export default class NotesView{
         })
         
     }
-    updateActiveNote(note){
+    updateActiveNote ( note )
+    {
         this.main.querySelector( ".note-title" ).value = note.title;
         this.main.querySelector(".note-body").value = note.body;
         const existedActiveNotes = this.main.querySelectorAll('.active')
